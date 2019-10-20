@@ -1,3 +1,5 @@
+require 'csv'
+
 module Comparator
   class CompareCSV
 
@@ -48,8 +50,8 @@ module Comparator
         # ensure header and column of both file are not swapped
         zip_index = 0
         fixed_file_column.zip(comparing_file_column).each do |fixed_column_data, compare_column_data|
-          zip_index += 1
           difference_hash[fixed_file_header[zip_index]] = fixed_column_data[1].difference(compare_column_data[1])
+          zip_index += 1
         end
       else
         raise CSVHeaderMissMatchError
