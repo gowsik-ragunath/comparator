@@ -1,0 +1,3 @@
+module Comparator::csv
+
+end
