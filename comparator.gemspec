@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["v.gowsik@gmail.com"]
 
   spec.summary       = "It a csv comparator for now"
-  spec.description   = "This comparator is a pretty simple gem that helps you to compare csv file"
+  spec.description   = "A gem that helps you to compare two csv files"
   spec.homepage      = "https://github.com/gowsik-ragunath/data_comparator"
   spec.license       = "MIT"
 
