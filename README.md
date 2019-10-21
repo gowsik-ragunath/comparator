@@ -26,13 +26,14 @@ require "comparator"
 
 Now, create an instance for Comparator as
 
+```
+comparator = Comparator::CompareCSV.new(to_be_compared_file_path, compared_with_file_path)
+```
+
 `to_be_compared_file_path` - first argument should be a file path to get miss match of data comparing with the other csv file.
 
 `compared_with_file_path` - second argument should be a file path of other csv file which will be compared.
 
-```
-comparator = Comparator::CompareCSV.new(to_be_compared_file_path, compared_with_file_path)
-```
 
 **Note: Both file should follow same header names and column data order**
 
