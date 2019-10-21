@@ -1,8 +1,6 @@
 # Comparator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/comparator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A CSV file comparator which will returns a hash which contains column name as key with a list of missing data as value after comparing both csv files
 
 ## Installation
 
@@ -22,17 +20,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require "comparator"
+```
 
-## Development
+Now, create an instance for Comparator as
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+`to_be_compared_file_path` - first argument should be a file path to get miss match of data comparing with the other csv file.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+`compared_with_file_path` - second argument should be a file path of other csv file which will be compared.
+
+```
+comparator = Comparator::CompareCSV.new(to_be_compared_file_path, compared_with_file_path)
+```
+
+**Note: Both file should follow same header names and column data order**
+
+```
+Example Format file1.csv:
+   Column1,Column2
+   a,1
+   b,2
+   
+Example Format file2.csv:
+   Column1,Column2
+   c,1
+   b,50
+   
+comparator = Comparator::CompareCSV.new(file1.csv, file2.csv)
+puts comparator.csv_file_comparator
+# {"Column1"=>["a"],"Column2"=>["2"]}
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/comparator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gowsik-ragunath/comparator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
