@@ -1,6 +1,6 @@
 # Comparator
 
-A CSV file comparator which will returns a hash which contains column name as key with a list of missing data as value after comparing both csv files
+A CSV file comparator which will returns a hash which contains column name as key with a list of missing data as value after comparing both csv files and an array comparator that will return a hash after comparing two or more arrays that are passed as arguments.
 
 ## Installation
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 require "comparator"
 ```
 
-Now, create an instance for Comparator as
+Now, create an instance for Comparator to compare 2 csv file as
 
 ```
 comparator = Comparator::CompareCSV.new(to_be_compared_file_path, compared_with_file_path)
@@ -51,6 +51,20 @@ Example Format file2.csv:
 comparator = Comparator::CompareCSV.new(file1.csv, file2.csv)
 puts comparator.csv_file_comparator
 # {"Column1"=>["a"],"Column2"=>["2"]}
+```
+
+Create an instance for Comparator to compare arrays as
+
+```
+comparator = Comparator::CompareArray.new
+```
+
+and then pass arrays to be compared as arguments to the following method
+
+```
+  difference_in_array = comparator.array_comparator([21,32,[43,32,["numbers"]]],["an","array","of","words"],["an","array",["of","and"],"words",[21,32]])
+  puts difference_in_array
+  # {"difference"=>[43, "numbers"]}
 ```
 
 ## Contributing
